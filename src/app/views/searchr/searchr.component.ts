@@ -13,4 +13,9 @@ export class SearchrComponent implements OnInit {
   ngOnInit(): void {
     this.map.initMap();
   }
+  doGeocoging()
+    {
+      const adres = (<HTMLInputElement>document.getElementById('adresses')).value;
+      this.map.geocoding(adres);
+    }
 }
