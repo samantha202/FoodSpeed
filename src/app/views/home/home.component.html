@@ -874,22 +874,22 @@
                     <a class="twitter brd-rd3" href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
                 </div>
                 <span class="popup-seprator text-center"><i class="brd-rd50">or</i></span>
-                <form class="sign-form">
+                <form class="sign-form" #form="ngForm">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
-                            <input class="brd-rd3" type="text" id="nom" placeholder="Nom">
+                            <input class="brd-rd3" type="text" id="nom" placeholder="Nom" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" >
                         </div>
                         <div class="col-md-12 col-sm-12 col-lg-12">
-                            <input class="brd-rd3" type="text" id="prenom" placeholder="prenom">
+                            <input class="brd-rd3" type="text" id="prenom" placeholder="prenom"  [(ngModel)]="prenom" [ngModelOptions]="{standalone: true}">
                         </div>
                         <div class="col-md-12 col-sm-12 col-lg-12">
-                            <input class="brd-rd3" type="text" id="email" placeholder="Email">
+                            <input class="brd-rd3" type="text" id="email" placeholder="Email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
                         </div>
                         <div class="col-md-12 col-sm-12 col-lg-12">
-                            <input class="brd-rd3" type="password" id="password" placeholder="Password">
+                            <input class="brd-rd3" type="password" id="password" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
                         </div>
                         <div class="col-md-12 col-sm-12 col-lg-12">
-                            <button class="red-bg brd-rd3" type="submit">Save</button>
+                            <button class="red-bg brd-rd3" type="submit" [disabled]="form.invalid" (click)="AddUser()">Save</button>
                         </div>
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <a class="sign-btn" href="#" title="" itemprop="url">Account already? Sign in</a>
