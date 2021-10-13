@@ -26,6 +26,7 @@ import { SearchrComponent } from './views/searchr/searchr.component';
     FormsModule,
     GooglePlaceModule,
     AgmCoreModule.forRoot({
+      //the google maps key is required to be able to use the Google maps API
       apiKey: 'AIzaSyD2cPvVFGpXFhzNgEYoqrrGgZ-MW8ZDWQo'
      }),
   ],

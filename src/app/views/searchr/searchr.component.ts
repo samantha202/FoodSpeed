@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MapsService } from 'src/app/service/maps.service';
 
 @Component({
   selector: 'app-searchr',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./searchr.component.css']
 })
 export class SearchrComponent implements OnInit {
-
-  constructor() { }
+  //I'm using dependency injection to be able to call the function that initializes the maps (MapsService) from my component
+  constructor(private map : MapsService) { }
 
   ngOnInit(): void {
+    this.map.initMap();
   }
-
 }
