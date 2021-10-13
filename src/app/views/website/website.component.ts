@@ -11,5 +11,7 @@ export class WebsiteComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  addList(nom:string,categorie:string,montant:number)
+  {
+  }
 }
