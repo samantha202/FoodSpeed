@@ -841,7 +841,7 @@
                 <form class="sign-form" #form1="ngForm">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
-                            <input class="brd-rd3" type="text" id="email1" placeholder="Email"  [(ngModel)]="email1" required [ngModelOptions]="{standalone: true}">
+                            <input class="brd-rd3" type="text" id="email1" placeholder="Email" [(ngModel)]="email1" required [ngModelOptions]="{standalone: true}">
                         </div>
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <input class="brd-rd3" type="password" id="password1" placeholder="Password" [(ngModel)]="password1" [ngModelOptions]="{standalone: true}">
@@ -849,7 +849,7 @@
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <button class="red-bg brd-rd3" type="submit" [disabled]="form1.invalid" (click)="CheckUser()">SIGN IN</button>
                         </div>
-                        <div class="col-md-12 col-sm-12 col-lg-12" *ngIf="errors.length">{{ errors.join(' ') }}</div>
+                        <div class="col-md-12 col-sm-12 col-lg-12"></div>
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <a class="sign-btn" href="#" title="" itemprop="url">Not a member? Sign up</a>
                             <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>

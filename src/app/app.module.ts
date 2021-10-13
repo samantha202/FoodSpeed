@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { FooterComponent } from './pages/footer/footer.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { HomeComponent } from './views/home/home.component';
@@ -16,13 +17,17 @@ import { SearchrComponent } from './views/searchr/searchr.component';
     FooterComponent,
     NavbarComponent,
     HomeComponent,
-    SearchrComponent
+    SearchrComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    GooglePlaceModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD2cPvVFGpXFhzNgEYoqrrGgZ-MW8ZDWQo'
+     }),
   ],
   providers: [],
   bootstrap: [AppComponent]
