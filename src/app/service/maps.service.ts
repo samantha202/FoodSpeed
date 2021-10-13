@@ -54,6 +54,43 @@ geocoder : any;
     latitude1 = results[0].geometry.location.lat();
     longitude1 = results[0].geometry.location.lng();
     })
+    this.SearchRestaurant(adr);
+  }
+  SearchRestaurant(adr:string) 
+  {
+    const self = this;
+    infowindow = new google.maps.InfoWindow();
+    infowindowContent = document.getElementById('infowindow-content');
+    infowindow.setContent(infowindowContent);
+    //var adr = this.adresse;  
+    var map=this.map;
+    this.geocoder.geocode( { 'address': adr}, function(results)
+    {
+        map.setZoom(18);
+        map.setCenter(results[0].geometry.location);
+          
+      // Création du marqueur du lieu (épingle)
+          marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location,
+          draggable: true,
+          title: "go to the restaurant website"
+      });
+      const contentString =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h3><a href="http://localhost:4200/website">Website</a></h3>'+'</div>'+'</div>'
+    
+      marker.bindTo('bounds',map);
+      marker.setVisible(true);
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      })
+    });
   }
 }
 

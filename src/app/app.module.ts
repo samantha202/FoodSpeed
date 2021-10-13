@@ -10,6 +10,7 @@ import { HomeComponent } from './views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SearchrComponent } from './views/searchr/searchr.component';
+import { WebsiteComponent } from './views/website/website.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SearchrComponent } from './views/searchr/searchr.component';
     NavbarComponent,
     HomeComponent,
     SearchrComponent,
+    WebsiteComponent,
   ],
   imports: [
     BrowserModule,
