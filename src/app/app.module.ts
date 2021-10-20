@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SearchrComponent } from './views/searchr/searchr.component';
 import { WebsiteComponent } from './views/website/website.component';
+import { ReservationComponent } from './views/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { WebsiteComponent } from './views/website/website.component';
     HomeComponent,
     SearchrComponent,
     WebsiteComponent,
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,
