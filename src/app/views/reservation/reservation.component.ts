@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient } from '@angular/common/http';
+import {SessionStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-reservation',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
-
-  constructor() { }
+  nom = '';
+  prenom = '';
+  email = '';
+  constructor(private session: SessionStorageService) { }
 
   ngOnInit(): void {
+   this.nom = this.session.retrieve("nom");
+   this.prenom = this.session.retrieve("prenom");
+   this.email = this.session.retrieve("email");
   }
-
 }

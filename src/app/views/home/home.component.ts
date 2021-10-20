@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import { UtilisateurService} from 'src/app/service/utilisateur.service';
+import {SessionStorageService} from 'ngx-webstorage';
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
   users: undefined|null|Utilisateur|any;
   constructor(
     private router : Router,
-    private user :UtilisateurService) 
+    private user :UtilisateurService,
+    private session: SessionStorageService) 
     {
     }
 
@@ -44,6 +46,9 @@ export class HomeComponent implements OnInit {
       this.errors = [];
     if(this.users[0].password === this.password1 && this.users[0].email === this.email1)
     {
+      this.session.store("nom",this.users[0].nom);
+      this.session.store("prenom",this.users[0].prenom);
+      this.session.store("email",this.users[0].email);
       this.router.navigate(['/search']);
     }
     }catch(err)
