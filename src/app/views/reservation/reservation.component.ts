@@ -3,7 +3,7 @@ import {HttpClient } from '@angular/common/http';
 import {FoodListService} from 'src/app/service/food-list.service';
 import {SessionStorageService} from 'ngx-webstorage';
 import {Food} from 'src/app/models/food';
-import {ElementsOptions,Elements,Element as StripeElement, } from "ngx-stripe";
+import {StripeService,ElementsOptions,Elements,Element as StripeElement, } from "ngx-stripe";
 
 @Component({
   selector: 'app-reservation',
@@ -22,7 +22,8 @@ export class ReservationComponent implements OnInit {
     locale: 'fr'
   };
   constructor(private session: SessionStorageService,
-              private foodList:FoodListService) { }
+              private foodList:FoodListService,
+              private stripeService: StripeService,) { }
 
   ngOnInit(): void {
    this.nom = this.session.retrieve("nom");
@@ -39,5 +40,16 @@ export class ReservationComponent implements OnInit {
   getTotalAmount()
   {
     this.food.forEach(f => this.total += f.getMontant());
+  }
+  initButtonStripe(){
+    const promise = this.stripeService.elements(this.elementsOptions).toPromise();
+    promise.then(elements =>{
+      this.elements = elements;
+      if (!this.card) {
+        this.card = this.elements.create('card', {
+        });
+        this.card.mount('#card-element');
+      }
+    })
   }
 }
