@@ -47,6 +47,20 @@ export class ReservationComponent implements OnInit {
       this.elements = elements;
       if (!this.card) {
         this.card = this.elements.create('card', {
+          style: {
+             base: {
+             iconColor: '#666EE8',
+             color: '#31325F',
+             lineHeight: '40px',
+             fontWeight: 300,
+             fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+             fontSize: '18px',
+             '::placeholder': 
+              {
+                color: '#CFD7E0'
+              }
+            }
+          }
         });
         this.card.mount('#card-element');
       }
