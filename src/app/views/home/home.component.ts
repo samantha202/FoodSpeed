@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import { UtilisateurService} from 'src/app/service/utilisateur.service';
-import {SessionStorageService} from 'ngx-webstorage';
 import {Router} from '@angular/router';
+import {SessionStorageService} from 'ngx-webstorage';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router : Router,
     private user :UtilisateurService,
-    private session: SessionStorageService) 
+    private session: SessionStorageService,) 
     {
     }
 

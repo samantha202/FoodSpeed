@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { SearchrComponent } from './views/searchr/searchr.component';
 import { WebsiteComponent } from './views/website/website.component';
 import { ReservationComponent } from './views/reservation/reservation.component';
+import {NgxStripeModule } from "ngx-stripe";
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ReservationComponent } from './views/reservation/reservation.component'
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    NgxWebstorageModule.forRoot(),
     GooglePlaceModule,
+    NgxStripeModule.forRoot('pk_test_51IbmXgDHFVIVSFomcH3KsE2Oo1ofJFAjowTVbektCku0K91PjnTOfarXkC82nBMXLYGYUYZtiAursVeUajLlTMfY009K7T2PgM'),
     AgmCoreModule.forRoot({
       //the google maps key is required to be able to use the Google maps API
       apiKey: 'AIzaSyD2cPvVFGpXFhzNgEYoqrrGgZ-MW8ZDWQo'
