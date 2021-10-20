@@ -17,13 +17,15 @@ export class ReservationComponent implements OnInit {
   elements!: Elements|null|undefined ;
   card!: StripeElement;
   total! : number;
+  status! : number;
   food! : Food[];
   elementsOptions: ElementsOptions = {
     locale: 'fr'
   };
   constructor(private session: SessionStorageService,
               private foodList:FoodListService,
-              private stripeService: StripeService,) { }
+              private stripeService: StripeService,
+              private http: HttpClient) { }
 
   ngOnInit(): void {
    this.nom = this.session.retrieve("nom");
@@ -41,6 +43,7 @@ export class ReservationComponent implements OnInit {
   {
     this.food.forEach(f => this.total += f.getMontant());
   }
+  //this function allows me to initialize the stripe button
   initButtonStripe(){
     const promise = this.stripeService.elements(this.elementsOptions).toPromise();
     promise.then(elements =>{
@@ -65,5 +68,28 @@ export class ReservationComponent implements OnInit {
         this.card.mount('#card-element');
       }
     })
+  }
+  //this function creates a token for the payment
+  buy(){
+    const promise = this.stripeService.createToken(this.card,{}).toPromise();
+    promise.then(obj => {
+      if (obj) {
+        this.http.post("http://localhost:3000/charge",
+        {
+        token : obj.token.id,
+        email: this.email,
+        mont: this.total,
+        }).subscribe(
+        (res)=>{
+        this.status = 1;
+        },
+        (err)=>{
+          console.log(' ',err)
+         }) 
+       } 
+       else {
+       console.log("Ereur creé par la token ");
+      }
+    });
   }
 }
