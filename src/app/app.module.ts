@@ -14,6 +14,7 @@ import { WebsiteComponent } from './views/website/website.component';
 import { ReservationComponent } from './views/reservation/reservation.component';
 import {NgxStripeModule } from "ngx-stripe";
 import {NgxWebstorageModule} from 'ngx-webstorage';
+import { CalendarComponent } from './views/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
     SearchrComponent,
     WebsiteComponent,
     ReservationComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
