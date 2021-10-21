@@ -90,6 +90,8 @@
                                                         </div>
                                                         <div class="col-md-12 col-sm-12 col-lg-12">
                                                             <div class="step-buttons">
+                                                                <a class="brd-rd3 red-bg" (click)="buy()" title="" itemprop="url">Confirm</a>
+                                                                <a class="brd-rd3" *ngIf="status===1" title="" itemprop="url" (click)="downloadPdf()">Download Bill</a>
                                                             </div>
                                                         </div>
                                                     </div>

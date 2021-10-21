@@ -3,6 +3,7 @@ import {HttpClient } from '@angular/common/http';
 import {FoodListService} from 'src/app/service/food-list.service';
 import {SessionStorageService} from 'ngx-webstorage';
 import {Food} from 'src/app/models/food';
+import { PdfService} from 'src/app/service/pdf.service';
 import {StripeService,ElementsOptions,Elements,Element as StripeElement, } from "ngx-stripe";
 
 @Component({
@@ -12,6 +13,7 @@ import {StripeService,ElementsOptions,Elements,Element as StripeElement, } from 
 })
 export class ReservationComponent implements OnInit {
   nom = '';
+  telephone = '';
   prenom = '';
   email = '';
   elements!: Elements|null|undefined ;
@@ -28,7 +30,8 @@ export class ReservationComponent implements OnInit {
   constructor(private session: SessionStorageService,
               private foodList:FoodListService,
               private stripeService: StripeService,
-              private http: HttpClient) 
+              private http: HttpClient,
+              private dml:PdfService,) 
               {
                 this.food = Array();
                 this.total = 0;
@@ -79,6 +82,9 @@ export class ReservationComponent implements OnInit {
       }
     })
   }
+  downloadPdf(){
+    this.dml.downloadPDF(this.food,this.total,this.nom, this.prenom,this.email,this.dateS,this.heure,this.table,this.telephone);
+  }
   //this function creates a token for the payment
   buy(){
     const promise = this.stripeService.createToken(this.card,{}).toPromise();
@@ -95,11 +101,8 @@ export class ReservationComponent implements OnInit {
         },
         (err)=>{
           console.log(' ',err)
-         }) 
-       } 
-       else {
-       console.log("Ereur creé par la token ");
-      }
+        }) 
+      } 
     });
   }
 }
