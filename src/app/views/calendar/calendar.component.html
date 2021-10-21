@@ -1,1 +1,38 @@
-<p>calendar works!</p>
+<div class='demo-app'>
+
+    <div class='demo-app-sidebar'>
+      <div class='demo-app-sidebar-section'>
+       
+      </div>
+      <div class='demo-app-sidebar-section'>
+        <label>
+          <input
+            type='checkbox'
+            [checked]='calendarVisible'
+            (change)='handleCalendarToggle()'
+          />
+          toggle whole calendar
+        </label>
+      </div>
+      <div class='demo-app-sidebar-section'>
+        <label>
+          <input
+            type='checkbox'
+            [checked]='calendarOptions.weekends'
+            (change)='handleWeekendsToggle()'
+          />
+          toggle weekends
+        </label>
+      </div>
+      <div class='demo-app-sidebar-section'>
+        <a href="" title="" itemprop="url">Bill</a>
+      </div>
+    </div>
+  
+    <div class='demo-app-main'>
+      <full-calendar
+        *ngIf='calendarVisible'
+        [options]='calendarOptions'
+      ></full-calendar>
+    </div>
+  </div>
