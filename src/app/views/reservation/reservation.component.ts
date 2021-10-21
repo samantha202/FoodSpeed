@@ -19,18 +19,28 @@ export class ReservationComponent implements OnInit {
   total! : number;
   status! : number;
   food! : Food[];
+  table = '';
+  dateS = '';
+  heure = '';
   elementsOptions: ElementsOptions = {
     locale: 'fr'
   };
   constructor(private session: SessionStorageService,
               private foodList:FoodListService,
               private stripeService: StripeService,
-              private http: HttpClient) { }
+              private http: HttpClient) 
+              {
+                this.food = Array();
+                this.total = 0;
+              }
 
   ngOnInit(): void {
+   this.all();
    this.nom = this.session.retrieve("nom");
    this.prenom = this.session.retrieve("prenom");
    this.email = this.session.retrieve("email");
+   this.getTotalAmount();
+   this.initButtonStripe();
   }
   //retrieving the list of articles from the previous view
   all()

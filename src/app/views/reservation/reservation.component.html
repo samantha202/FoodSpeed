@@ -30,7 +30,8 @@
                                                     <h4 itemprop="headlie">YOUR ORDER</h4>
                                                     <ul class="ordr-lst brd-rd5">
                                                     <li class="lst-hed" >Name<span>amount</span><span>category</span></li>
-                                                        <li class="red-bg">Total <span></span></li>
+                                                        <li  *ngFor="let data of food;let i = index">{{data.getNom()}}<span>{{data.getMontant()}}</span><span>{{data.getCategorie()}}</span></li>
+                                                        <li class="red-bg">Total <span>{{total}}</span></li>
                                                     </ul>
                                                     <div class="ordr-btn">   
                                                     </div>
@@ -43,7 +44,7 @@
                                                             <!-- col-md-4 col-sm-4 col-lg-4 -->
                                                             <div class="col-md-12 col-sm-12 col-lg-12">
                                                                 <label>Your Table<sup>*</sup></label>
-                                                                <input class="brd-rd3" type="text" placeholder="enter your table number">
+                                                                <input class="brd-rd3" type="text" placeholder="enter your table number" [(ngModel)]="table" [ngModelOptions]="{standalone: true}">
                                                                 <div class="packege-box brd-rd5 text-center">
                                                                     <img src="assets/images/dashbord.PNG" alt="gallery-detail-img.jpg" itemprop="image">
                                                                 </div>
@@ -57,15 +58,15 @@
                                                     <div class="row mrg20">
                                                         <div class="col-md-6 col-sm-6 col-lg-6">
                                                             <label>First Name <sup>*</sup></label>
-                                                            <input class="brd-rd3">
+                                                            <input class="brd-rd3" [(ngModel)]="nom" type="text" [ngModelOptions]="{standalone: true}">
                                                         </div>
                                                         <div class="col-md-6 col-sm-6 col-lg-6">
                                                             <label>Last Name <sup>*</sup></label>
-                                                            <input class="brd-rd3">
+                                                            <input class="brd-rd3"  [(ngModel)]="prenom" type="text" [ngModelOptions]="{standalone: true}">
                                                         </div>
                                                         <div class="col-md-6 col-sm-6 col-lg-6">
                                                             <label>Email <sup>*</sup></label>
-                                                            <input class="brd-rd3" type="email">
+                                                            <input class="brd-rd3" type="email"  [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
                                                         </div>
                                                         <div class="col-md-6 col-sm-6 col-lg-6">
                                                             <label>Phone <sup>*</sup></label>
@@ -73,18 +74,18 @@
                                                         </div>
                                                         <div class="col-md-6 col-sm-6 col-lg-6">
                                                             <label>Date<sup>*</sup></label>
-                                                            <input class="brd-rd3" type="date">
+                                                            <input class="brd-rd3" type="date" [(ngModel)]="dateS" [ngModelOptions]="{standalone: true}">
                                                         </div>
                                                         <div class="col-md-6 col-sm-6 col-lg-6">
                                                             <label>Hour<sup>*</sup></label>
-                                                            <input class="brd-rd3" type="time">
+                                                            <input class="brd-rd3" type="time" [(ngModel)]="heure" [ngModelOptions]="{standalone: true}">
                                                         </div>
                                                         <div id="space">
                                                             <div class="col-md-12 col-sm-12 col-lg-12">
                                                                 <img src="assets/images/pay-mthd-img.jpg" alt="pay-mthd-img.jpg" itemprop="image">
                                                             </div>
                                                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                                                <div class="field"></div>
+                                                                <div id="card-element" class="field"></div>
                                                             </div> 
                                                         </div>
                                                         <div class="col-md-12 col-sm-12 col-lg-12">
@@ -105,4 +106,3 @@
         </div><!-- Section Box -->
     </div>
 </section>
-
