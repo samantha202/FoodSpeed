@@ -9,20 +9,20 @@ export function createEventId() {
 }
 export class event{
   constructor(private session:SessionStorageService){
+  }
     dat = this.session.retrieve("dat");
     hour = this.session.retrieve("hour");
-    const RESERVATION_DATE = new Date(dat).toISOString().replace(/T.*$/, ''); // YYYY-MM-DD of today
-    const INITIAL_EVENTS: EventInput[] = [
+    RESERVATION_DATE = new Date(dat).toISOString().replace(/T.*$/, ''); // YYYY-MM-DD of today
+    INITIAL_EVENTS: EventInput[] = [
         {
           id: createEventId(),
           title: '2021-45',
-          start: RESERVATION_DATE
+          start: this.RESERVATION_DATE
         },
         {
           id: createEventId(),
           title: 'Booking',
-          start: RESERVATION_DATE +'T'+hour
+          start: this.RESERVATION_DATE +'T'+hour
         }
     ];
-  }
 }
