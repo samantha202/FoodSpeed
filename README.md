@@ -2,6 +2,10 @@
 
 this website allows users to book their table and meal in the restaurant of their choice in advance in order to avoid long waiting lines during rush times Built in Angular 11 !
 
+
+https://user-images.githubusercontent.com/19303925/138431855-a408aec1-227c-40a1-89d6-6c97b66d4a70.mp4
+
+
 ## Installation
 
 if you want to use the code then follow the following instructions. Simply download the whole project, then set up your environment for Angular if you haven't done it yet (you need to have Node.js installed and npm package manager) :
