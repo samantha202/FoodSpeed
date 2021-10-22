@@ -14,21 +14,21 @@ Then in the directory where you put the project, use the following command to st
 
 ## Features
 
--creation of a user account
+- creation of a user account
 
--connection
+- connection
 
--search for a restaurant with its postal address
+- search for a restaurant with its postal address
 
 - Address autocompletion
 
--geocoding
+- geocoding
 
--reservation of a table
+- reservation of a table
 
 - menu selection
 
--payment stripe
+- payment stripe
 
 - PDF invoice
 
